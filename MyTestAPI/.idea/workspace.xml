@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9a1b8b09-9bb9-47d2-82de-844a00d860b4" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1d30sbjx7x6hejaucpcmLWK3Fkv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Emils\PycharmProjects\TestAPI\MyTestAPI\templates" />
+      <recent name="C:\Users\Emils\PycharmProjects\TestAPI\MyTestAPI\index" />
+      <recent name="C:\Users\Emils\PycharmProjects\TestAPI\MyTestAPI\MyTestAPI" />
+      <recent name="C:\Users\Emils\PycharmProjects\TestAPI\MyTestAPI" />
+      <recent name="C:\Users\Emils\PycharmProjects\TestAPI\MyTestAPI\MyTestAPI\templates" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9a1b8b09-9bb9-47d2-82de-844a00d860b4" name="Default Changelist" comment="" />
+      <created>1591638676460</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591638676460</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="910" y="218" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591729347780">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="910" y="218" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1591729347780" />
+    <state x="886" y="199" key="FileChooserDialogImpl" timestamp="1591639925666">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="886" y="199" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1591639925666" />
+    <state x="555" y="96" key="SettingsEditor" timestamp="1591639935853">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="555" y="96" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1591639935853" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1592237380047">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1592237380047" />
+  </component>
+</project>
