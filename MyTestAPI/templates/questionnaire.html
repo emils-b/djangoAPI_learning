@@ -6,12 +6,23 @@
 </head>
 <body>
 
-    {% for question in questions %}
+    <!-- var arī laikam <li> <h5> vietā likt lai katru atsevišķo rindu izmanotu, jāpapēta tas,
+    bet nu kopumā jautājumus tad dalīs pa lapām (varēs tikai redzēt, jāaskatās kā piesaista caur jaurrājumu abjektu, jo ir sasaistīti),
+     piesaistīs katram login useram un tad varēs ievadīt atbildes, kuras saglabāsies,
+     izveidos, ka atbilžu lapas ar atbilstošajiem jautājumiem var apskatīt un consent mainīt-->
+    <!--{% for question in questions %}
     <h5>{{question.question1}}</h5>
     <h5>{{question.question2}}</h5>
     <h5>{{question.question3}}</h5>
     <h5>{{question.question4}}</h5>
-    {% endfor %}
+    {% endfor %}-->
+
+
+    <h5>{{questions.question1}}</h5>
+    <h5>{{questions.question2}}</h5>
+    <h5>{{questions.question3}}</h5>
+    <h5>{{questions.question4}}</h5>
+
 
 
 <form action="submit" methods="post">

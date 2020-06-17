@@ -12,7 +12,12 @@ class Questionnaire(models.Model):
 
 class Answers(models.Model): #doesn't inherit Questionnaire obj, can use ForeignKey
 #class Answers(Questionnaire):
-    questionnaire = models.ForeignKey(Questionnaire, on_delete=models.SET_NULL, blank=True, null=True)
+    #questionnaire = models.ForeignKey(Questionnaire, on_delete=models.SET_NULL, blank=True, null=True)
+    questionnaire = models.OneToOneField(
+        Questionnaire,
+        on_delete=models.CASCADE,
+        primary_key=True,
+    )
     qpk = Questionnaire.pk
     answer1 = models.TextField()
     answer2 = models.TextField()

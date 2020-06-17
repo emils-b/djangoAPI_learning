@@ -112,7 +112,12 @@ questionsObj = Questionnaire.objects.all()
 
 
 def questionnaire(request):
-    return render(request, 'questionnaire.html', {'questions': questionsObj})
+    return render(request, 'questionnaire.html', {'questions': questionsObj[0]}) #questionsObj.get(pk=answersObj[0].questionnaire_id)
+
+#jāveido ka html veidojā ar mainīgajiem. atkarībā no user, kurš ir ielogojies. Paņem no viņa visus aktuālos jautājumus
+#un viņa atbildes (veido questionnaire.html questionsObj kā izrietošu no login user)
+#jāveido arī redzams saraksts ar jautājumu objektiem uz kuriem ir atbildēts, lai var pievienot consent voi to noņemt
+#katram individuāli
 
 
 
