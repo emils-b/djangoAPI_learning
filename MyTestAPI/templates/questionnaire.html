@@ -5,11 +5,6 @@
     <title>Questionnaire</title>
 </head>
 <body>
-
-    <!-- var arī laikam <li> <h5> vietā likt lai katru atsevišķo rindu izmanotu, jāpapēta tas,
-    bet nu kopumā jautājumus tad dalīs pa lapām (varēs tikai redzēt, jāaskatās kā piesaista caur jaurrājumu abjektu, jo ir sasaistīti),
-     piesaistīs katram login useram un tad varēs ievadīt atbildes, kuras saglabāsies,
-     izveidos, ka atbilžu lapas ar atbilstošajiem jautājumiem var apskatīt un consent mainīt-->
     <!--{% for question in questions %}
     <h5>{{question.question1}}</h5>
     <h5>{{question.question2}}</h5>
@@ -24,16 +19,17 @@
     <h5>{{questions.question4}}</h5>
 
 
-
 <form action="submit" methods="post">
-
-      {% csrf_token %}
-
+   <!--
     <input type="text" name="answer1" placeholder="Answer1"><br>
     <input type="text" name="answer2" placeholder="Answer2"><br>
     <input type="text" name="answer3" placeholder="Answer3"><br>
     <input type="text" name="answer4" placeholder="Answer4"><br>
     <input type="submit">
+    -->
+      {% csrf_token %}
+       {{form.as_ul}}
+       <button type="submit", name="submit">Submit</button>
 
 </form>
 </body>

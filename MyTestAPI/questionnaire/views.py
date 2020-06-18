@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from questionnaire.models import Questionnaire, Answers
+from questionnaire.models import Questionnaire, Answers, answerForm
 from django.http import HttpResponse, JsonResponse
 from rest_framework.parsers import JSONParser
 from .serializers import QuestionnaireSerializer, AnswersSerializer, AnswersAndQuestionsSerializer
@@ -118,6 +118,12 @@ def questionnaire(request):
 #un viņa atbildes (veido questionnaire.html questionsObj kā izrietošu no login user)
 #jāveido arī redzams saraksts ar jautājumu objektiem uz kuriem ir atbildēts, lai var pievienot consent voi to noņemt
 #katram individuāli
+
+
+def answer_form(response):
+    form = answerForm()
+    return render(response, 'questionnaire.html', {'form': form})
+
 
 
 
