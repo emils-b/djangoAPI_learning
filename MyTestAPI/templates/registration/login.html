@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+    <form method="post" class="from-group">
+        {%csrf_token%}
+        {{form.as_ul}}
+        <button type="submit" class="btn btn-success">Login</button>
+        <p>Create account <a href="/account/register">here</a></p>
+    </form>
+</body>
+</html>

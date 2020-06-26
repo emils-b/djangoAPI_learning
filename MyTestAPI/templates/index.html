@@ -13,8 +13,14 @@
         {% csrf_token %}
         <button type="User button">Sign in</button>
     </form>-->
+
+    {%if user.is_authenticated%}
+    <button onclick="window.location.href='/account/logout';"> Logout</button><br>
+    {% else %}
     <button onclick="window.location.href='/account/register';"> Register</button><br>
-    <button onclick="window.location.href='/account/user_login';"> Sign in</button><br>
+    <button onclick="window.location.href='/account/login';"> Login</button><br>
     <button onclick="window.location.href='/admin';"> Admin sign in</button><br>
+    {% endif %}
+
 </body>
 </html>

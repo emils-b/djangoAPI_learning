@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from questionnaire.models import Questionnaire, Answers, answerForm
+from questionnaire.models import Questionnaire, Answers#, answerForm
 from django.http import HttpResponse, JsonResponse
 from rest_framework.parsers import JSONParser
 from .serializers import QuestionnaireSerializer, AnswersSerializer, AnswersAndQuestionsSerializer
@@ -110,9 +110,25 @@ def answers_and_questions_list(request):
 answersObj = Answers.objects.all()
 questionsObj = Questionnaire.objects.all()
 
-
+#var paskatities pie user ka veidoja no cita parauga
 def questionnaire(request):
-    return render(request, 'questionnaire.html', {'questions': questionsObj[0]}) #questionsObj.get(pk=answersObj[0].questionnaire_id)
+    if request.method == 'POST':
+        answer1 = request.POST.get('Answer1')
+        answer2 = request.POST.get('Answer2')
+        answer3 = request.POST.get('Answer3')
+        answer4 = request.POST.get('Answer4')
+        id = User.objects.get(id=0)
+        answers = Answers(answer1, answer2, answer3, answer4)
+
+        answers.save()
+    else:
+        answers = Answers()
+    return render(request, 'questionnaire.html', {'questions': questionsObj[0]})
+
+
+#def questionnaire(request):
+#
+#    return render(request, 'questionnaire.html', {'questions': questionsObj[0]}) #questionsObj.get(pk=answersObj[0].questionnaire_id)
 
 #jāveido ka html veidojā ar mainīgajiem. atkarībā no user, kurš ir ielogojies. Paņem no viņa visus aktuālos jautājumus
 #un viņa atbildes (veido questionnaire.html questionsObj kā izrietošu no login user)
@@ -120,9 +136,9 @@ def questionnaire(request):
 #katram individuāli
 
 
-def answer_form(response):
-    form = answerForm()
-    return render(response, 'questionnaire.html', {'form': form})
+#def answer_form(response):
+#    form = answerForm()
+#    return render(response, 'questionnaire.html', {'form': form})
 
 
 

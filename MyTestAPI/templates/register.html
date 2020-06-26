@@ -9,6 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+
+    <form class="form-group" method="POST">
+      {% csrf_token %}
+      {{form.as_ul}}
+      <button type="submit" class="btn tbn-success">Register</button>
+    </form>
+  <!--
     <form action="register" method="post">
 
       {% csrf_token %}
@@ -28,6 +35,7 @@
       <h3> {{message}} </h3>
       {% endfor %}
     </div>
+    -->
 
   </body>
   </html>

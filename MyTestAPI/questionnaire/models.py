@@ -1,7 +1,10 @@
 from django.db import models
 from django import forms
+from django.contrib.auth.models import User
 
-
+#katram user kā foreignkey jāpiesaista atbildes, tad pēc pk var atlasīt atbilžu sarakstus, kurus tad katrs lietotājs varēs mainīt un
+#regulēt piekrišanu. Katrām atbildēm tad ar foreign key pievieno jautājumus, pēc tā tad varēs atlasīt un atspoguļot kuri jautājumi
+#ir pie šīm atbildēm un varēs regulēt piekļuves
 class Questionnaire(models.Model):
     question1 = models.TextField()
     question2 = models.TextField()
@@ -15,6 +18,7 @@ class Questionnaire(models.Model):
 class Answers(models.Model):  # doesn't inherit Questionnaire obj, can use ForeignKey
     # class Answers(Questionnaire):
     # questionnaire = models.ForeignKey(Questionnaire, on_delete=models.SET_NULL, blank=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     questionnaire = models.OneToOneField(
         Questionnaire,
         on_delete=models.CASCADE,
@@ -33,12 +37,12 @@ class Answers(models.Model):  # doesn't inherit Questionnaire obj, can use Forei
 
 
 
-class answerForm(forms.Form):
-    # questionnaire = forms.ForeignKey(Questionnaire, on_delete=models.SET_NULL, blank=True, null=True)
-    test = forms.Field()
-    q1 = 'testing this question'
-    answer1 = forms.CharField(label=q1, max_length=200)
-    answer2 = forms.CharField(label=q1 + '2', max_length=200)
-    answer3 = forms.CharField(label=q1 + '3', max_length=200)
-    answer4 = forms.CharField(label=q1 + '4', max_length=200)
-    consent = forms.BooleanField(required=False)
+#class answerForm(forms.Form):
+#    # questionnaire = forms.ForeignKey(Questionnaire, on_delete=models.SET_NULL, blank=True, null=True)
+#    test = forms.Field()
+#    q1 = 'testing this question'
+#    answer1 = forms.CharField(label=q1, max_length=200)
+#    answer2 = forms.CharField(label=q1 + '2', max_length=200)
+#    answer3 = forms.CharField(label=q1 + '3', max_length=200)
+#    answer4 = forms.CharField(label=q1 + '4', max_length=200)
+#    consent = forms.BooleanField(required=False)
