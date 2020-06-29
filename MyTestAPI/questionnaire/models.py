@@ -2,39 +2,32 @@ from django.db import models
 from django import forms
 from django.contrib.auth.models import User
 
-#katram user kā foreignkey jāpiesaista atbildes, tad pēc pk var atlasīt atbilžu sarakstus, kurus tad katrs lietotājs varēs mainīt un
-#regulēt piekrišanu. Katrām atbildēm tad ar foreign key pievieno jautājumus, pēc tā tad varēs atlasīt un atspoguļot kuri jautājumi
-#ir pie šīm atbildēm un varēs regulēt piekļuves
-class Questionnaire(models.Model):
-    question1 = models.TextField()
-    question2 = models.TextField()
-    question3 = models.TextField()
-    question4 = models.TextField()
-
-    def __str__(self):
-        return str(self.pk)
-
 
 class Answers(models.Model):  # doesn't inherit Questionnaire obj, can use ForeignKey
     # class Answers(Questionnaire):
     # questionnaire = models.ForeignKey(Questionnaire, on_delete=models.SET_NULL, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    questionnaire = models.OneToOneField(
-        Questionnaire,
-        on_delete=models.CASCADE,
-        primary_key=True,
-    )
-    qpk = Questionnaire.pk
+    #questionnaire = models.OneToOneField(Questionnaire, on_delete=models.CASCADE, primary_key=True)
+    #qpk = Questionnaire.pk
     answer1 = models.TextField()
     answer2 = models.TextField()
     answer3 = models.TextField()
     answer4 = models.TextField()
     image = models.ImageField(upload_to='media', blank=True, null=True)
 
-    # japievieno users, kas ir atbildejusi vai jasasaista atbildes ar user
     def __str__(self):
         return str(self.pk)
 
+
+class Questionnaire(models.Model):
+    question1 = models.TextField()
+    question2 = models.TextField()
+    question3 = models.TextField()
+    question4 = models.TextField()
+    answers = models.ForeignKey(Answers, on_delete=models.SET_NULL, blank=True, null=True)
+
+    def __str__(self):
+        return str(self.pk)
 
 
 #class answerForm(forms.Form):

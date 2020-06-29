@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from questionnaire.models import Questionnaire, Answers#, answerForm
 from django.http import HttpResponse, JsonResponse
@@ -108,23 +108,31 @@ def answers_and_questions_list(request):
 
 
 answersObj = Answers.objects.all()
-questionsObj = Questionnaire.objects.all()
+
 
 #var paskatities pie user ka veidoja no cita parauga
-def questionnaire(request):
+def q_list(request):
+    questionsObj = Questionnaire.objects.all()
+    return render(request, 'q_list.html', {'questions': questionsObj})
+
+
+def questionnaire(request, id):
+    questionnaire = Questionnaire.objects.get(id=id)
+    return render(request, 'questionnaire.html', {'questionnaire': questionnaire})
+    #return HttpResponse("<h1>%s</h1>" % questionnaire.question1)
+
+def sub_answers(request):
+    current_user = request.user
     if request.method == 'POST':
-        answer1 = request.POST.get('Answer1')
-        answer2 = request.POST.get('Answer2')
-        answer3 = request.POST.get('Answer3')
-        answer4 = request.POST.get('Answer4')
-        id = User.objects.get(id=0)
-        answers = Answers(answer1, answer2, answer3, answer4)
-
+        answer1 = request.POST['answer1']
+        answer2 = request.POST['answer2']
+        answer3 = request.POST['answer3']
+        answer4 = request.POST['answer4']
+        answers = Answers.objects.create(user=current_user, answer1=answer1, answer2=answer2, answer3=answer3, answer4=answer4)
         answers.save()
+        return redirect('/q_list')
     else:
-        answers = Answers()
-    return render(request, 'questionnaire.html', {'questions': questionsObj[0]})
-
+        return render(request, 'q_list.html')
 
 #def questionnaire(request):
 #

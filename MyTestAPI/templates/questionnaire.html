@@ -1,32 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Questionnaire</title>
 </head>
 <body>
+    <h5>{{questionnaire.question1}}</h5>
+    <h5>{{questionnaire.question2}}</h5>
+    <h5>{{questionnaire.question3}}</h5>
+    <h5>{{questionnaire.question4}}</h5>
 
-    <h5>{{questions.question1}}</h5>
-    <h5>{{questions.question2}}</h5>
-    <h5>{{questions.question3}}</h5>
-    <h5>{{questions.question4}}</h5>
+    <form action="sub_answers" method="POST">
+        {% csrf_token %}
+        <input type="text" name="answer1" placeholder="Answer1"><br>
+        <input type="text" name="answer2" placeholder="Answer2"><br>
+        <input type="text" name="answer3" placeholder="Answer3"><br>
+        <input type="text" name="answer4" placeholder="Answer4"><br>
+        <input type="Submit">
+    </form>
 
 
-<form action="questionnaire" method="post">
-    {% csrf_token %}
-
-    <input type="text" name="answer1" placeholder="Answer1"><br>
-    <input type="text" name="answer2" placeholder="Answer2"><br>
-    <input type="text" name="answer3" placeholder="Answer3"><br>
-    <input type="text" name="answer4" placeholder="Answer4"><br>
-    <input type="Submit">
-
-    <!--
-      {% csrf_token %}
-       {{form.as_ul}}
-       <button type="submit", name="submit">Submit</button>
-       -->
-
-</form>
 </body>
 </html>

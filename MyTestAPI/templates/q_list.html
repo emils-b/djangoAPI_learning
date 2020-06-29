@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>q_list</title>
+</head>
+<body>
+    {% for q in questions %}
+        <li class="questionnaire"><a href="q_list/{{q.id}}"><h3>{{q.id}}</h3></a></li>
+    {% endfor %}
+</body>
+</html>
