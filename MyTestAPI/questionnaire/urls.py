@@ -5,8 +5,8 @@ from .views import questionnaire_detail, answers_list, answers_detail, questionn
 
 urlpatterns = [
     path('q_list', views.q_list, name='q_list.'),
-    path('q_list/<int:id>', views.questionnaire, name='questionnaire'),
-    path('q_list/sub_answers', views.sub_answers, name='sub_answers'),
+    path('q_list/<int:id>/', views.questionnaire, name='questionnaire'),
+    path('q_list/<int:id>/sub_answers', views.sub_answers, name='sub_answers'),
     #path('questionnaire', views.answer_form, name='answer_form.'),
     path('questions/', questionnaire_list),  # gets questions JSON
     path('question/<int:pk>/', questionnaire_detail),  # gets question JSON from pk

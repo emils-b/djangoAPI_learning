@@ -119,9 +119,9 @@ def q_list(request):
 def questionnaire(request, id):
     questionnaire = Questionnaire.objects.get(id=id)
     return render(request, 'questionnaire.html', {'questionnaire': questionnaire})
-    #return HttpResponse("<h1>%s</h1>" % questionnaire.question1)
 
-def sub_answers(request):
+
+def sub_answers(request, id):
     current_user = request.user
     if request.method == 'POST':
         answer1 = request.POST['answer1']
@@ -130,7 +130,8 @@ def sub_answers(request):
         answer4 = request.POST['answer4']
         consent = request.POST.get('consent')
         consent = True if consent else False
-        answers = Answers.objects.create(user=current_user, answer1=answer1, answer2=answer2, answer3=answer3, answer4=answer4, consent=consent)
+        questionnaire = Questionnaire.objects.get(id=id)
+        answers = Answers.objects.create(questionnaire=questionnaire, user=current_user, answer1=answer1, answer2=answer2, answer3=answer3, answer4=answer4, consent=consent)
         answers.save()
         return redirect('/q_list')
     else:
