@@ -128,7 +128,9 @@ def sub_answers(request):
         answer2 = request.POST['answer2']
         answer3 = request.POST['answer3']
         answer4 = request.POST['answer4']
-        answers = Answers.objects.create(user=current_user, answer1=answer1, answer2=answer2, answer3=answer3, answer4=answer4)
+        consent = request.POST.get('consent')
+        consent = True if consent else False
+        answers = Answers.objects.create(user=current_user, answer1=answer1, answer2=answer2, answer3=answer3, answer4=answer4, consent=consent)
         answers.save()
         return redirect('/q_list')
     else:

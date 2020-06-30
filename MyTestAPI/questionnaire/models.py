@@ -14,6 +14,7 @@ class Answers(models.Model):  # doesn't inherit Questionnaire obj, can use Forei
     answer3 = models.TextField()
     answer4 = models.TextField()
     image = models.ImageField(upload_to='media', blank=True, null=True)
+    consent = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.pk)
