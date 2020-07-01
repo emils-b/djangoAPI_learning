@@ -5,6 +5,7 @@
     <title>Questionnaire</title>
 </head>
 <body>
+    {% if questionnaire %}
     <h5>{{questionnaire.question1}}</h5>
     <h5>{{questionnaire.question2}}</h5>
     <h5>{{questionnaire.question3}}</h5>
@@ -21,6 +22,10 @@
         <input type="Submit">
     </form>
 
+    {% else %}
+    <h5>You have answered this questioonnaire!</h5>
+    <a href="/q_list"><h5>Question list</h5></a>
+    {% endif %}
 
 </body>
 </html>

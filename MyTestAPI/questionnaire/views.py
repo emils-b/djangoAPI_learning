@@ -107,18 +107,22 @@ def answers_and_questions_list(request):
         return JsonResponse(serializer.errors, status=400)
 
 
-answersObj = Answers.objects.all()
-
-
-#var paskatities pie user ka veidoja no cita parauga
 def q_list(request):
     questionsObj = Questionnaire.objects.all()
     return render(request, 'q_list.html', {'questions': questionsObj})
 
 
 def questionnaire(request, id):
+    #if curent user answer list ir answer ar šī questionnaire pk tad parāda, ka ir atbildēts
     questionnaire = Questionnaire.objects.get(id=id)
-    return render(request, 'questionnaire.html', {'questionnaire': questionnaire})
+    current_user = request.user
+    answersObj = Answers.objects.all()
+    for a in answersObj:
+        if current_user.id != a.user.id and id != a.questionnaire.id:
+            return render(request, 'questionnaire.html', {'questionnaire': questionnaire})
+
+    else:
+        return render(request, 'questionnaire.html', {'answers': answers})
 
 
 def sub_answers(request, id):
@@ -136,6 +140,15 @@ def sub_answers(request, id):
         return redirect('/q_list')
     else:
         return render(request, 'q_list.html')
+
+def a_list(request):
+    answersObj = Answers.objects.all()
+    return render(request, 'a_list.html', {'answers': answersObj})
+
+
+def answers(request, id):
+    answers = Answers.objects.get(id=id)
+    return render(request, 'answers.html', {'answers': answers})
 
 #def questionnaire(request):
 #

@@ -16,6 +16,7 @@
 
     {%if user.is_authenticated%}
     <button onclick="window.location.href='/q_list';"> Question list</button><br>
+    <button onclick="window.location.href='/a_list';"> Answer list</button><br>
     <button onclick="window.location.href='/account/logout';"> Logout</button><br>
     {% else %}
     <button onclick="window.location.href='/account/register';"> Register</button><br>
