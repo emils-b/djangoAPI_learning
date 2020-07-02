@@ -7,7 +7,7 @@
 <body>
     {% for a in answers %}
     {% if user.id == a.user.pk %}
-        <li class="answers"><a href="a_list/{{a.id}}"><h3>{{a.id}}</h3></a></li>
+        <li class="answers"><a href="a_list/{{a.id}}"><h3>{{a.id}} {{a.questionnaire.name}}</h3></a></li>
     {% endif %}
     {% endfor %}
     <a href="/"><h5>Start page</h5></a></li>

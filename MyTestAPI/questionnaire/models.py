@@ -21,6 +21,7 @@ from django.contrib.auth.models import User
 
 
 class Questionnaire(models.Model):
+    name = models.TextField(default='No name')
     question1 = models.TextField()
     question2 = models.TextField()
     question3 = models.TextField()
@@ -28,7 +29,7 @@ class Questionnaire(models.Model):
     #answers = models.ForeignKey(Answers, on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
-        return str(self.pk)
+        return str(self.name)
 
 class Answers(models.Model):
     questionnaire = models.ForeignKey(Questionnaire, on_delete=models.SET_NULL, blank=True, null=True)
@@ -38,8 +39,11 @@ class Answers(models.Model):
     answer2 = models.TextField()
     answer3 = models.TextField()
     answer4 = models.TextField()
-    image = models.ImageField(upload_to='media', blank=True, null=True)
+    image = models.FileField(upload_to='media', blank=True, null=True)
     consent = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.questionnaire.name)
 
 #class answerForm(forms.Form):
 #    # questionnaire = forms.ForeignKey(Questionnaire, on_delete=models.SET_NULL, blank=True, null=True)

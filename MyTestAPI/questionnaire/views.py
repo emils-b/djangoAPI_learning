@@ -113,16 +113,17 @@ def q_list(request):
 
 
 def questionnaire(request, id):
-    #if curent user answer list ir answer ar šī questionnaire pk tad parāda, ka ir atbildēts
     questionnaire = Questionnaire.objects.get(id=id)
     current_user = request.user
     answersObj = Answers.objects.all()
+    is_answered = False
     for a in answersObj:
-        if current_user.id != a.user.id and id != a.questionnaire.id:
-            return render(request, 'questionnaire.html', {'questionnaire': questionnaire})
-
+        if current_user.id == a.user.pk and id == a.questionnaire.pk:
+            is_answered = True
+    if is_answered:
+        return render(request, 'is_answered.html')
     else:
-        return render(request, 'questionnaire.html', {'answers': answers})
+        return render(request, 'questionnaire.html', {'questionnaire': questionnaire})
 
 
 def sub_answers(request, id):
