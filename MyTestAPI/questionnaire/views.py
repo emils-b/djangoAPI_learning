@@ -149,6 +149,13 @@ def a_list(request):
 
 def answers(request, id):
     answers = Answers.objects.get(id=id)
+    if request.method == 'POST':
+        consent = request.POST.get('consent')
+        consent = True if consent else False
+        if consent:
+            answers.consent = True
+        else:
+            answers.consent = False
     return render(request, 'answers.html', {'answers': answers})
 
 #def questionnaire(request):

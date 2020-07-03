@@ -17,5 +17,13 @@
     <h5>User - {{answers.user}}</h5>
 
     <a href="/a_list"><h5>Answers list</h5></a>
+
+    <form action="answers" method="POST">
+        {% csrf_token %}
+        <input type="checkbox" id="consent" name="consent">
+        <label for="consent">Consent</label><br>
+        <input type="Submit">
+    </form>
+
 </body>
 </html>
