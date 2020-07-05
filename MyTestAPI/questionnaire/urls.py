@@ -9,6 +9,10 @@ urlpatterns = [
     path('q_list/<int:id>/sub_answers', views.sub_answers, name='sub_answers'),
     path('a_list', views.a_list, name='a_list.'),
     path('a_list/<int:id>/', views.answers, name='answers'),
+   # path('a_list/<int:id>/ch_cons', views.ch_cons(), name='answers'),
+    path('a_cons_list', views.a_cons_list, name='a_cons_list'),
+    path('a_cons_list/<int:id>/', views.cons, name='a_cons'),
+    path('a_cons_list/<int:id>/ch_cons', views.ch_cons, name='ch_cons'),
     path('questions/', questionnaire_list),  # gets questions JSON
     path('question/<int:pk>/', questionnaire_detail),  # gets question JSON from pk
     path('answers/', answers_list),  # gets answers JSON

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>consent list</title>
+</head>
+<body>
+    {% for a in answers %}
+    {% if user.id == a.user.pk %}
+        <li class="consents"><a href="a_cons_list/{{a.id}}"><h3>{{a.id}} {{a.questionnaire.name}} {{a.consent}}</h3></a></li>
+    {% endif %}
+    {% endfor %}
+    <a href="/"><h5>Start page</h5></a></li>
+
+</body>
+</html>

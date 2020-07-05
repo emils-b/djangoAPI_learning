@@ -149,14 +149,34 @@ def a_list(request):
 
 def answers(request, id):
     answers = Answers.objects.get(id=id)
-    if request.method == 'POST':
+    return render(request, 'answers.html', {'answers': answers})
+
+def a_cons_list(request):
+    answersObj = Answers.objects.all()
+    return render(request, 'a_cons_list.html', {'answers': answersObj})
+
+def cons(request, id):
+    answers = Answers.objects.get(id=id)
+    return render(request, 'a_cons.html', {'answers': answers})
+
+def ch_cons(request, id):
+    answers = Answers.objects.get(id=id)
+    if request.method == 'POST': #JALIEK ATSEVISKA METODE
         consent = request.POST.get('consent')
         consent = True if consent else False
         if consent:
             answers.consent = True
+            print('true')
+            answers.save()
+            #return redirect('/a_cons_list')
         else:
             answers.consent = False
-    return render(request, 'answers.html', {'answers': answers})
+            print('false')
+            answers.save()
+            #return redirect('/a_cons_list')
+        return redirect('/a_cons_list')
+    else:
+        return render(request, 'a_cons_list.html', {'answers': answers})
 
 #def questionnaire(request):
 #

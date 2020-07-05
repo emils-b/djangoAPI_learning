@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>consent</title>
+</head>
+<body>
+    <h5>Consent - {{answers.consent}}</h5>
+
+   <form action="ch_cons" method="POST">
+        {% csrf_token %}
+        {% if answers.consent == True %}
+        <input type="checkbox" id="t_consent" name="consent" checked>
+        <label for="t_consent">Consent</label><br>
+        <input type="Submit">
+       {% else %}
+       <input type="checkbox" id="f_consent" name="consent">
+        <label for="f_consent">Consent</label><br>
+        <input type="Submit">
+       {% endif %}
+    </form>
+
+    <a href="/"><h5>Start page</h5></a></li>
+</body>
+</html>
