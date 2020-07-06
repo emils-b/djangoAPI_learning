@@ -11,10 +11,10 @@ class QuestionnaireSerializer(serializers.ModelSerializer):
 class AnswersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answers
-        fields = ['pk', 'answer1', 'answer2', 'answer3', 'answer4', 'qpk']
+        fields = ['questionnaire', 'pk', 'answer1', 'answer2', 'answer3', 'answer4']
 
 
 class AnswersAndQuestionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answers
-        fields = ['pk', 'question1', 'answer1', 'question2', 'answer2', 'question3', 'answer3', 'question4', 'answer4', 'qpk']
+        fields = ['questionnaire', 'pk', 'question1', 'answer1', 'question2', 'answer2', 'question3', 'answer3', 'question4', 'answer4']

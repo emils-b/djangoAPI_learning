@@ -29,12 +29,12 @@ class Questionnaire(models.Model):
     #answers = models.ForeignKey(Answers, on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
-        return str(self.name)
+        return str(str(self.pk)+' '+self.name)
 
 class Answers(models.Model):
     questionnaire = models.ForeignKey(Questionnaire, on_delete=models.SET_NULL, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    qpk = Questionnaire.pk
+    #qpk = Questionnaire.pk
     answer1 = models.TextField()
     answer2 = models.TextField()
     answer3 = models.TextField()
@@ -43,7 +43,7 @@ class Answers(models.Model):
     consent = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self.questionnaire.name)
+        return str(str(self.pk)+' '+str(self.questionnaire.pk)+' '+self.questionnaire.name)
 
 #class answerForm(forms.Form):
 #    # questionnaire = forms.ForeignKey(Questionnaire, on_delete=models.SET_NULL, blank=True, null=True)
